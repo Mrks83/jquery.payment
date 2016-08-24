@@ -258,9 +258,8 @@ formatCardNumber = (e) ->
   return if $target.prop('selectionStart')? and
     $target.prop('selectionStart') isnt value.length
 
-  if card && card.type is 'amex'
-    # AMEX cards are formatted differently
-    re = /^(\d{4}|\d{4}\s\d{6})$/
+  if card
+    re = card.format
   else
     re = /(?:^|\s)(\d{4})$/
 
